@@ -6,7 +6,7 @@ async function register() {
   const name = document.getElementById("name").value.trim();
   const surname = document.getElementById("surname").value.trim();
   const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
+  const password = document.getElementById("password").value.trim();
 
   const errorMessage = document.getElementById("error-message");
   errorMessage.textContent = "";
