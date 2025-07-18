@@ -178,7 +178,7 @@ body {
   max-width: 300px;
 }.center button:hover {
   background: linear-gradient(to right, #8a5939, #5a2d19);
-}/* Geri butonu */
+}
 .back-button {
   background: linear-gradient(to right, #a47148, #6e3b23);
   border: none;

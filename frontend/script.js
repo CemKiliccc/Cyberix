@@ -39,6 +39,10 @@ function showLoading(element, show) {
     button.textContent = button.id === "loginButton" ? "Sign in" : "Kayıt Ol";
   }
 }
+function goBack() {
+  window.history.back();
+}
+
 
 async function register() {
   const name = document.getElementById("name").value.trim();
