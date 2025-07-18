@@ -39,6 +39,10 @@ function showLoading(element, show) {
     button.textContent = button.id === "loginButton" ? "Sign in" : "Kayıt Ol";
   }
 }
+function goBack() {
+  window.history.back();
+}
+
 
 async function register() {
   const name = document.getElementById("name").value.trim();
@@ -50,19 +54,19 @@ async function register() {
   errorMessage.textContent = "";
 
   if (!name || !surname || !email || !password) {
-    errorMessage.textContent = "Lütfen tüm alanları doldurun.";
+    errorMessage.textContent = "Please fill in all fields!!";
     return;
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
-    errorMessage.textContent = "Geçerli bir e-posta adresi girin.";
+    errorMessage.textContent = "Enter a valid email address.";   
     return;
   }
 
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
   if (!passwordRegex.test(password)) {
-    errorMessage.textContent = "Şifre en az 8 karakter, bir harf ve bir sayı içermelidir.";
+    errorMessage.textContent = "Password must contain at least 8 characters, one letter and one number.";
     return;
   }
 
@@ -84,7 +88,7 @@ async function register() {
       errorMessage.textContent = data.message || "Kayıt başarısız.";
     }
   } catch (error) {
-    errorMessage.textContent = "Sunucuya bağlanılamadı.";
+    errorMessage.textContent = "Could not connect to the server.";
   } finally {
     showLoading(errorMessage, false);
   }
@@ -98,7 +102,7 @@ async function login() {
   errorMessage.textContent = "";
 
   if (!username || !password) {
-    errorMessage.textContent = "Lütfen tüm alanları doldurun.";
+    errorMessage.textContent = "Please fill in all fields.";
     return;
   }
 
@@ -113,14 +117,14 @@ async function login() {
     const data = await response.json();
 
     if (response.ok) {
-      alert("Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz...");
+      alert("Login successful! You are being redirected to the home page...");
       clearForm([document.getElementById("username"), document.getElementById("password")]);
       setTimeout(() => (window.location.href = "/anasayfa.html"), 1000);
     } else {
-      errorMessage.textContent = data.message || "Giriş başarısız. Bilgilerinizi kontrol edin.";
+      errorMessage.textContent = data.message || "Login failed. Check your information.";
     }
   } catch (error) {
-    errorMessage.textContent = "Sunucuya bağlanılamadı.";
+    errorMessage.textContent = "Could not connect to the server.";
   } finally {
     showLoading(errorMessage, false);
   }
