@@ -54,7 +54,7 @@ async function register() {
   errorMessage.textContent = "";
 
   if (!name || !surname || !email || !password) {
-    errorMessage.textContent = "Lütfen tüm alanları doldurun.";
+    errorMessage.textContent = "Please fill in all fields!!";
     return;
   }
 
