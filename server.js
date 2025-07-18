@@ -1,4 +1,3 @@
-// .env dosyasındaki ayarları yükler (MONGO_URI, PORT, JWT_SECRET vs)
 require("dotenv").config();
 
 const express = require("express");
@@ -17,12 +16,10 @@ app.use(express.static("frontend"));
 
 app.use("/api/auth", authRoutes);
 
-// 🧪 Basit test endpoint'i
 app.get("/", (req, res) => {
   res.send("Sunucu çalışıyor!");
 });
 
-// 📡 Sunucuyu başlat
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(` Sunucu ${PORT} portunda çalışıyor`);

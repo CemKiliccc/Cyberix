@@ -22,11 +22,12 @@ async function register() {
     return;
   }
 
-  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-  if (!passwordRegex.test(password)) {
-    errorMessage.textContent = "Şifre en az 8 karakter, bir harf ve bir sayı içermelidir.";
-    return;
-  }
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
+if (!passwordRegex.test(password)) {
+  errorMessage.textContent = "Şifre en az 8 karakter, bir harf ve bir sayı içermelidir.";
+  return;
+}
+
 
   try {
     const response = await fetch("/api/auth/register", {
@@ -46,4 +47,8 @@ async function register() {
   } catch (error) {
     errorMessage.textContent = "Sunucuya bağlanılamadı.";
   }
+  
+}
+async function loign(){
+  
 }
