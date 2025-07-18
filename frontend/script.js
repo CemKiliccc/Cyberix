@@ -40,7 +40,7 @@ if (!passwordRegex.test(password)) {
 
     if (response.ok) {
       alert("Kayıt başarılı! Ana sayfaya yönlendiriliyorsunuz...");
-      window.location.href = "/index.html";
+      window.location.href = "/login.html";
     } else {
       errorMessage.textContent = data.message || "Kayıt başarısız.";
     }
