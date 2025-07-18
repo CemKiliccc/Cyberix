@@ -97,6 +97,10 @@ body {
   margin-top: 10px;
   text-align: center;
 }
+.right a{
+  text-align: center;
+  font-size: 15px;
+}
 
 .right p {
   text-align: center;
@@ -137,15 +141,15 @@ body {
 }
 /* Register container */
 .register-container {
-  width: 500px;
-  height: 530px;
+  width: 600px;
+  height: 580px;
   background-color: #fbf8f3;
   padding: 40px;
   border-radius: 20px;
   color: #3e2c23;
   box-shadow: 0 0 20px rgba(108, 89, 73, 0.2);
   margin: auto;
-  margin-top: 75px;
+  margin-top: 50px;
 }.center {
   display: flex;
   flex-direction: column;
