@@ -14,13 +14,23 @@ body {
 
 /* Login kutusu */
 .login-container {
-  width: 1200px;
+  max-width: 1200px;
+  width: 90%;
   height: 600px;
   display: flex;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.548);
   background-color: #fbf8f3;
+}
+
+
+.toggle-password {
+  position: absolute;
+  left:  +1080px;
+  top: 54%;
+  transform: translateY(-50%);
+  font-size: xx-large;
 }
 
 /* Sol taraf */
@@ -49,7 +59,7 @@ body {
 .right {
   flex: 2;
   background-color: #f5eee5;
-  padding: 20px ;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,7 +86,6 @@ body {
 
 .right input::placeholder {
   color: #a6907d;
-
 }
 
 .right button {
@@ -102,6 +111,9 @@ body {
   margin-top: 10px;
   text-align: center;
 }
+
+
+
 
 .right p {
   text-align: center;
@@ -175,14 +187,21 @@ body {
   background: linear-gradient(to right, #8a5939, #5a2d19);
 }
 
-.back-button{
-    background: linear-gradient(to right #a47148, #6e3b23);
-    background-color:  #8a5939;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    font-size: x-large;
-    padding: 7px 25px;
-    cursor: pointer;
-    transition: background 0.9s ease;
+/* Geri butonu */
+.back-button {
+  background: linear-gradient(to right, #a47148, #6e3b23);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: x-large;
+  padding: 7px 25px;
+  cursor: pointer;
+  transition: background 0.9s ease;
 }
+
+/* Eğer bir parola alanı özel stili gerekiyorsa burayı doldurabilirsin */
+/*
+.password {
+  
+}
+*/
