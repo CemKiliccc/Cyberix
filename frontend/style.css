@@ -24,15 +24,6 @@ body {
   background-color: #fbf8f3;
 }
 
-
-.toggle-password {
-  position: absolute;
-  left:  +1080px;
-  top: 54%;
-  transform: translateY(-50%);
-  font-size: xx-large;
-}
-
 /* Sol taraf */
 .left {
   flex: 0.6;
@@ -49,17 +40,11 @@ body {
   margin-bottom: 10px;
 }
 
-.left p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-top: 20px;
-}
-
 /* Sağ taraf */
 .right {
   flex: 2;
   background-color: #f5eee5;
-  padding: 20px;
+  padding: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,6 +67,7 @@ body {
   background-color: #fdfbf8;
   color: #3e2c23;
   outline: none;
+  position: relative; 
 }
 
 .right input::placeholder {
@@ -112,9 +98,6 @@ body {
   text-align: center;
 }
 
-
-
-
 .right p {
   text-align: center;
   margin-top: 20px;
@@ -130,78 +113,25 @@ body {
   text-decoration: underline;
 }
 
-/* Register container */
-.register-container {
-  width: 500px;
-  height: 530px;
-  background-color: #fbf8f3;
-  padding: 40px;
-  border-radius: 20px;
-  color: #3e2c23;
-  box-shadow: 0 0 20px rgba(108, 89, 73, 0.2);
-  margin: auto;
-  margin-top: 75px;
+/* Password container */
+.password-container {
+  position: relative;
+  width: 38%; /* Match the input width */
+  margin: 10px auto; /* Center it */
+  right: 30px;
+
 }
 
-.center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.password-container input {
+  width: 100%; /* Full width of the container */
+  padding-right: 40px; /* Space for the icon */
 }
 
-.center h2 {
-  margin-bottom: 20px;
-}
-
-.center input {
-  margin: 1% auto;
-  padding: 12px;
-  width: 80%;
-  font-size: 16px;
-  border-radius: 20px;
-  border: 2px solid #c2b3a3;
-  background-color: #fdfbf8;
-  color: #3e2c23;
-  outline: none;
-}
-
-.center input::placeholder {
-  color: #a6907d;
-}
-
-.center button {
-  margin-top: 20px;
-  padding: 12px;
-  background: linear-gradient(to right, #a47148, #6e3b23);
-  border: none;
-  border-radius: 25px;
-  color: white;
-  font-size: large;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  width: 100%;
-  max-width: 300px;
-}
-
-.center button:hover {
-  background: linear-gradient(to right, #8a5939, #5a2d19);
-}
-
-/* Geri butonu */
-.back-button {
-  background: linear-gradient(to right, #a47148, #6e3b23);
-  border: none;
-  border-radius: 20px;
-  color: white;
+.toggle-password {
+  position: absolute;
+  right: -41px; /* Distance from the right edge */
+  top: 50%;
+  transform: translateY(-50%);
   font-size: x-large;
-  padding: 7px 25px;
   cursor: pointer;
-  transition: background 0.9s ease;
 }
-
-/* Eğer bir parola alanı özel stili gerekiyorsa burayı doldurabilirsin */
-/*
-.password {
-  
-}
-*/
