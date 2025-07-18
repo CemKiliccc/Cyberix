@@ -102,7 +102,7 @@ async function login() {
   errorMessage.textContent = "";
 
   if (!username || !password) {
-    errorMessage.textContent = "Lütfen tüm alanları doldurun.";
+    errorMessage.textContent = "Please fill in all fields.";
     return;
   }
 
@@ -117,14 +117,14 @@ async function login() {
     const data = await response.json();
 
     if (response.ok) {
-      alert("Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz...");
+      alert("Login successful! You are being redirected to the home page...");
       clearForm([document.getElementById("username"), document.getElementById("password")]);
       setTimeout(() => (window.location.href = "/anasayfa.html"), 1000);
     } else {
-      errorMessage.textContent = data.message || "Giriş başarısız. Bilgilerinizi kontrol edin.";
+      errorMessage.textContent = data.message || "Login failed. Check your information.";
     }
   } catch (error) {
-    errorMessage.textContent = "Sunucuya bağlanılamadı.";
+    errorMessage.textContent = "Could not connect to the server.";
   } finally {
     showLoading(errorMessage, false);
   }
