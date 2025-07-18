@@ -60,13 +60,13 @@ async function register() {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
-    errorMessage.textContent = "Geçerli bir e-posta adresi girin.";
+    errorMessage.textContent = "Enter a valid email address.";   
     return;
   }
 
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
   if (!passwordRegex.test(password)) {
-    errorMessage.textContent = "Şifre en az 8 karakter, bir harf ve bir sayı içermelidir.";
+    errorMessage.textContent = "Password must contain at least 8 characters, one letter and one number.";
     return;
   }
 
@@ -88,7 +88,7 @@ async function register() {
       errorMessage.textContent = data.message || "Kayıt başarısız.";
     }
   } catch (error) {
-    errorMessage.textContent = "Sunucuya bağlanılamadı.";
+    errorMessage.textContent = "Could not connect to the server.";
   } finally {
     showLoading(errorMessage, false);
   }
