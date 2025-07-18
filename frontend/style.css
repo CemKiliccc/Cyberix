@@ -135,3 +135,58 @@ body {
   font-size: x-large;
   cursor: pointer;
 }
+/* Register container */
+.register-container {
+  width: 500px;
+  height: 530px;
+  background-color: #fbf8f3;
+  padding: 40px;
+  border-radius: 20px;
+  color: #3e2c23;
+  box-shadow: 0 0 20px rgba(108, 89, 73, 0.2);
+  margin: auto;
+  margin-top: 75px;
+}.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}.center h2 {
+  margin-bottom: 20px;
+}.center input {
+  margin: 1% auto;
+  padding: 12px;
+  width: 80%;
+  font-size: 16px;
+  border-radius: 20px;
+  border: 2px solid #c2b3a3;
+  background-color: #fdfbf8;
+  color: #3e2c23;
+  outline: none;
+}.center input::placeholder {
+  color: #a6907d;
+}.center button {
+  margin-top: 20px;
+  padding: 12px;
+  background: linear-gradient(to right, #a47148, #6e3b23);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: large;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+}.center button:hover {
+  background: linear-gradient(to right, #8a5939, #5a2d19);
+}/* Geri butonu */
+.back-button {
+  background: linear-gradient(to right, #a47148, #6e3b23);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: x-large;
+  padding: 7px 25px;
+  cursor: pointer;
+  transition: background 0.9s ease;
+}
+
