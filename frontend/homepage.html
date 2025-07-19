@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="style.css">
-    <h1>Welcome to Home Page</h1>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profil Kartı</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-</body>
-</html>
+
+  <div class="profile-wrapper">
+    <div class="profile-icon" onclick="toggleCard()">👤</div>
+    <div class="profile-card" id="profileCard">
+      <h3>Kişisel Bilgiler</h3>
+      <!-- Buraya dinamik veriler sonra gelecek -->
+      <hr>
+      <button class="logout-btn">Log Out</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleCard() {
+      document.getElementById('profileCard').classList.toggle('show');
+    }
+
+    // Dışarı tıklanınca kapat
+    document.addEventListener('click', function(e) {
+      const card = document.getElementById('profileCard');
+      const icon = document.querySelector('.profile-icon');
+      if (!card.contains(e.target) && !icon.contains(e.target)) {
+        card.classList.remove('show');
+      }
+    });
+  </script>

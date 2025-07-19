@@ -280,3 +280,58 @@ body {
   border-color: #261e0c;
   box-shadow: 0 0 5px #af1b0e50; 
 }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.profile-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.profile-icon {
+  background-color: #784a24;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+}
+
+.profile-card {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  padding: 15px;
+}
+
+.profile-card.show {
+  display: block;
+}
+
+.logout-btn {
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  padding: 8px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #e74c3c;
+}
