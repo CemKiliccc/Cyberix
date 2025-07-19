@@ -148,3 +148,105 @@ async function logout() {
     alert("Sunucuya bağlanılamadı.");
   }
 }
+async function send() {
+  const emailInput = document.getElementById("email");
+  const email = emailInput.value.trim();
+
+  const errorMessage = document.getElementById("error-message") || document.createElement("div");
+  errorMessage.id = "error-message";
+  if (!document.body.contains(errorMessage)) {
+    document.body.appendChild(errorMessage); // Eğer yoksa ekle
+  }
+  errorMessage.textContent = "";
+
+  if (!email) {
+    errorMessage.textContent = "Please enter your email address.";
+    return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    errorMessage.textContent = "Enter a valid email address.";
+    return;
+  }
+
+  showLoading(emailInput, true); // Buton yerine inputa göre yükleniyor göstermek için
+  try {
+    const response = await fetch("/send-code", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert("A verification code has been sent to your email.");
+      logTimestamp("Verification code sent");
+      localStorage.setItem("email", email); // ✔ verify.html'de lazım
+      window.location.href = "/verify.html";
+      emailInput.value = ""; 
+    } else {
+      errorMessage.textContent = data.message || "Failed to send code.";
+    }
+  } catch (error) {
+    errorMessage.textContent = "Could not connect to the server.";
+  } finally {
+    showLoading(emailInput, false);
+  }
+}
+async function verifyCode() {
+  const codeInputs = document.querySelectorAll(".otp-input");
+  const code = Array.from(codeInputs).map(i => i.value).join("");
+  const email = localStorage.getItem("email");
+
+  if (code.length !== 6) return alert("Please enter the 4-digit code.");
+
+  const res = await fetch("/verify-code", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, code }),
+  });
+
+  const data = await res.json();
+
+  if (res.ok) {
+    localStorage.setItem("code", code);  // ✅ Şifre yenileme için saklanıyor
+    window.location.href = "/resetpassword.html";
+  } else {
+    alert(data.message);
+  }
+}
+
+async function resetPassword() {
+  const newPassword = document.getElementById("newPassword").value.trim();
+  const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+  const email = localStorage.getItem("email");
+  const code = localStorage.getItem("code");
+
+  if (!newPassword || !confirmPassword) return alert("Please fill in both password fields.");
+  if (newPassword !== confirmPassword) return alert("Passwords do not match.");
+  if (!email || !code) return alert("Missing verification session. Please go back.");
+
+  try {
+    const res = await fetch("/reset-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, code, newPassword }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("Password reset successful!");
+      localStorage.removeItem("email");
+      localStorage.removeItem("code");
+      window.location.href = "/login.html";
+    } else {
+      alert(data.message);
+    }
+  } catch (err) {
+    alert("Server error.");
+  }
+}
